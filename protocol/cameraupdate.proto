@@ -1,0 +1,21 @@
+syntax = "proto3";
+package marshallcam;
+
+option go_package = "/server";
+
+/**
+ * CameraUpdate is sent from the client to server when new sensor data is
+ * available
+ */
+message CameraUpdate {
+    // Authentication token for this message
+    string api_token = 1;
+
+    // Unix time/seconds since Jan 1, 1970 UTC
+    uint64 time = 2;
+
+    float humidity = 3;
+    float temp = 4;
+
+    bytes picture = 5;
+}
